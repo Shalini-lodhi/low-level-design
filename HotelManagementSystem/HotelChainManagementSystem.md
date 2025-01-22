@@ -1,5 +1,4 @@
 # Hotel Chain Management System
----
 
 ### **Requirements**
 
