@@ -30,7 +30,138 @@ ___
 ## Class Diagram
 ```mermaid
 classDiagram
-    class Fligth{
-        
+    direction LR
+
+    class AirlineManagementSystem {
+        - List~Flight~ flights
+        - List~Aircraft~ aircrafts
+        - FlightSearch flightSearch
+        - BookingManager bookingManager
+        - PaymentProcessor paymentProcessor
+        + addFlight(Flight flight)
+        + addAircraft(Aircraft aircraft)
+        + searchFlights(String source, String destination, LocalDate date)
+        + bookFlight(Flight flight, Passenger passenger, Seat seat, double price)
+        + cancelBooking(String bookingNumber)
+        + processPayment(Payment payment)
     }
+
+    class FlightSearch {
+        - List~Flight~ flights
+        + searchFlights(String source, String destination, LocalDate date)
+    }
+
+    class Flight {
+        - String flightNumber
+        - String source
+        - String destination
+        - LocalDateTime departureTime
+        - LocalDateTime arrivalTime
+        - List~Seat~ availableSeats
+        + getSource()
+        + getDestination()
+        + getDepartureTime()
+        + getArrivalTime()
+        + getAvailableSeats()
+    }
+
+    class Aircraft {
+        - String tailNumber
+        - String model
+        - int totalSeats
+    }
+
+    class BookingManager {
+        - Map~String, Booking~ bookings
+        - Object lock
+        - AtomicInteger bookingCounter
+        + createBooking(Flight flight, Passenger passenger, Seat seat, double price)
+        + cancelBooking(String bookingNumber)
+    }
+
+    class Booking {
+        - String bookingNumber
+        - Flight flight
+        - Passenger passenger
+        - Seat seat
+        - double price
+        - BookingStatus status
+        + cancel()
+    }
+
+    class PaymentProcessor {
+        + processPayment(Payment payment)
+    }
+
+    class Payment {
+        - String paymentId
+        - String paymentMethod
+        - double amount
+        - PaymentStatus status
+        + processPayment()
+    }
+
+    class Passenger {
+        - String id
+        - String name
+        - String email
+        - String phone
+    }
+
+    class Seat {
+        - String seatNumber
+        - SeatType type
+        - SeatStatus status
+        + reserve()
+        + release()
+    }
+
+    class BookingStatus {
+        <<enumification>>
+        CONFIRMED,
+        CANCELLED,
+        PENDING,
+        EXPIRED
+    }
+    
+    class PaymentStatus {
+        <<enumification>>
+        PENDING,
+        COMPLETED,
+        FAILED,
+        REFUNDED
+    }
+
+    class SeatType {
+        <<enumification>>
+        ECONOMY,
+        PREMIUM_ECONOMY,
+        BUSINESS,
+        FIRST_CLASS
+    }
+    
+    class SeatStatus {
+        <<enumification>>
+        AVAILABLE,
+        RESERVED,
+        OCCUPIED
+    }
+
+    %% Relationships
+    AirlineManagementSystem --> FlightSearch
+    AirlineManagementSystem --> BookingManager
+    AirlineManagementSystem --> PaymentProcessor
+    AirlineManagementSystem --> Flight
+    AirlineManagementSystem --> Aircraft
+    FlightSearch --> Flight
+    BookingManager --> Booking
+    Booking --> Flight
+    Booking --> Passenger
+    Booking --> Seat
+    Booking --> BookingStatus
+    PaymentProcessor --> Payment
+    Payment --> PaymentStatus
+    Flight --> Seat
+    Seat --> SeatType
+    Seat --> SeatStatus
 ```
