@@ -1,10 +1,10 @@
 # Airline Reservation System
-___
+
 # Problem Satement
 1. **Entities and Relationships**: What are the major entities and their relationships?
 2. **Flight Scheduling**: How would flight scheduling, booking, and cancellations be managed in this system?
 3. **Seat Assignment**: How would seat assignment and passenger information be maintained?
-___
+
 ## Requirement
 1. The airline management system should allow users to search for flights based on source, destination, and date.
 2. Users should be able to book flights, select seats, and make payments.
@@ -14,7 +14,7 @@ ___
 6. The system should be able to handle cancellations, refunds, and flight changes.
 7. The system should ensure data consistency and handle concurrent access to shared resources.
 8. The system should be scalable and extensible to accommodate future enhancements and new features.
----
+
 ## Classes, Interfaces and Enumerations
 1. The **Flight** class represents a flight in the airline management system, with properties such as flight number, source, destination, departure time, arrival time, and available seats.
 2. The **Aircraft** class represents an aircraft, with properties like tail number, model, and total seats.
@@ -26,7 +26,7 @@ ___
 8. The **BookingManager** class manages the creation and cancellation of bookings. It follows the Singleton pattern to ensure a single instance of the booking manager.
 9. The **PaymentProcessor** class handles the processing of payments. It follows the Singleton pattern to ensure a single instance of the payment processor.
 10. The **AirlineManagementSystem** class serves as the main entry point of the system, combining all the components and providing methods for flight management, booking, payment processing, and other operations
----
+
 ## Class Diagram
 ```mermaid
 classDiagram
