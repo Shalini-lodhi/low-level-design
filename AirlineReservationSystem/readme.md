@@ -165,3 +165,40 @@ classDiagram
     Seat --> SeatType
     Seat --> SeatStatus
 ```
+
+---
+### Skeleton Design
+```mermaid
+classDiagram
+    class Flight{
+
+    }
+    class Aircraft{
+
+    }
+
+    %%Realtionship
+    AirlineManagementSystem "1" --> "many" Aircraft : manages
+    AirlineManagementSystem "1"--> "1"BookingSystem : has
+    AirlineManagementSystem "1" --> "1" PaymentProcessor : has
+
+    Aircraft "1" *-- "many" Flight : has
+    Flight "1" *-- "many" Seat : has
+
+    BookingSystem --> Booking : mamages
+    
+    Booking "1"--> "1"Seat : reserves
+    Booking "1"--> "many"Flight : books
+    
+    Booking "1" *--> "1" BookingStatus
+
+    Booking o-- Passenger
+    Booking --> Payment
+
+    PaymentProcessor --> Payment : process
+    Payment "1" *--> "1"PaymentStatus
+
+    Seat "1"*--> "1"SeatStatus
+    Seat "1"*--> "1"SeatType
+
+```
