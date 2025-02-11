@@ -4,8 +4,27 @@
 - **Client-Server Architecture:** Basics of how clients interact with servers.
 - **Distributed Systems:** Principles of distributed computing, advantages, and challenges.
 - **CAP Theorem:** Consistency, Availability, and Partition tolerance trade-offs.
-- **Load Balancing:** Techniques and algorithms (round-robin, least connections, IP hash).
 - **Scalability:** Vertical vs. horizontal scaling.
+
+### Load Balancing:
+  In software development, a load balancer is a system or device that distributes incoming network traffic across multiple servers. The goal is to ensure no single server gets overwhelmed with too many requests, which could lead to slower performance or failure.
+
+- Why Do We Need a Load Balancer?
+  1. **Scalability**: As your application grows and gets more traffic, you might need to add more servers to handle the load. A load balancer ensures that requests are directed to the right servers, even as you scale horizontally (adding more servers).
+  2. **Fault Tolerance**: If one server fails or is under maintenance, the load balancer can route traffic to the remaining healthy servers, ensuring your app stays online and doesn’t experience downtime.
+  3. **Better Performance**: By spreading the load across multiple servers, each server doesn’t get overwhelmed and can perform its tasks more quickly, improving response times and reducing latency.
+
+- Types of Load Balancers/ Algorithm
+  1. **Round Robin**: The simplest form, where requests are distributed in a circular fashion. Server 1 gets the first request, server 2 gets the second, and so on. Once all servers are used, it starts over.
+  2. **Least Connections**: The load balancer routes traffic to the server with the least number of active connections (requests). This helps ensure that the least busy server gets more traffic.
+  3. **IP Hash**: This technique uses a hash of the IP address of the client to determine which server will handle the request. It ensures that a specific user will always be directed to the same server, which is useful for session persistence.
+  4. **Weighted Load Balancing**: Some servers may be more powerful than others. With weighted load balancing, more traffic can be directed to the more powerful servers.
+
+- When to Use a Load Balancer in Software Development?
+  1. **High Traffic Websites**: If you're building a website or application expected to get a lot of visitors, you’ll want to use a load balancer to ensure the system can handle the load.
+  2. **Microservices Architecture**: In a system where you have multiple services running, each potentially on different servers, a load balancer helps route traffic to the correct service.
+  3. **Fault Tolerance**: If you want your system to be robust against server failure and downtime, the load balancer will ensure that traffic is directed only to healthy servers.
+  4. **API Requests**: If you’re building an API that needs to handle high concurrency, load balancing helps distribute the load of API requests.
 
 ---
 
