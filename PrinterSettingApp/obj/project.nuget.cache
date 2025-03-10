@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "hdyuqZ0Z3XE=",
+  "success": true,
+  "projectFilePath": "E:\\coding\\Java\\LLD_Problems-1\\PrinterSettingApp\\PrinterSettingApp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\shali\\.nuget\\packages\\microsoft.win32.systemevents\\9.0.2\\microsoft.win32.systemevents.9.0.2.nupkg.sha512",
+    "C:\\Users\\shali\\.nuget\\packages\\system.codedom\\9.0.2\\system.codedom.9.0.2.nupkg.sha512",
+    "C:\\Users\\shali\\.nuget\\packages\\system.drawing.common\\9.0.2\\system.drawing.common.9.0.2.nupkg.sha512",
+    "C:\\Users\\shali\\.nuget\\packages\\system.management\\9.0.2\\system.management.9.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}
